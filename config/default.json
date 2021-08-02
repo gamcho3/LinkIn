@@ -1,3 +1,3 @@
 {
-  "mongoURI": "mongodb+srv://park:park1234@cluster0.3lpku.mongodb.net/movieConnector?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://newUser:newuser123@cluster0.3lpku.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 }
