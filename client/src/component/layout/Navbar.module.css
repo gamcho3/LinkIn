@@ -1,0 +1,33 @@
+.navbar {
+  display: flex;
+  color: white;
+  background-color: black;
+  justify-content: space-between;
+  padding: 5px;
+  height: 40px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.list li {
+  margin-right: 10px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link:visited {
+  color: white;
+}

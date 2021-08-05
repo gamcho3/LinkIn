@@ -3,8 +3,12 @@ const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const User = require("../../models/User");
+const jwt = require("jsonwebtoken");
+const config = require("config");
+
 router.post(
   "/",
+  body("password", "password is required").isLength({ min: 6 }),
   body("name", "name is required").not().isEmpty(),
   body("email").isEmail(),
   async (req, res) => {
@@ -26,9 +30,24 @@ router.post(
         password,
       });
 
-      user.password = await bcrypt.hash(password, 10);
+      user.password = await bcrypt.hash(password, 10); //비밀번호 암호화
       user.save();
-      res.send("User register");
+
+      const payload = {
+        user: {
+          id: user.id,
+        },
+      };
+
+      jwt.sign(
+        payload,
+        config.get("jwt"),
+        { expiresIn: "1h" },
+        (err, token) => {
+          if (err) throw err;
+          res.json({ token });
+        }
+      );
     } catch (error) {
       console.log(error.message);
       res.status(500).send("Server Error");
