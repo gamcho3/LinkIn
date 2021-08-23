@@ -22,7 +22,7 @@ store.subscribe(() => {
   currentState = store.getState(); //바뀐후 값으로 재변경
   if (previousState.auth.token !== currentState.auth.token) {
     const token = currentState.auth.token;
-    setAuthToken(token);
+    setAuthToken(token); //authtoken함수 적용
   }
 });
 

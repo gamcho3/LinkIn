@@ -1,0 +1,53 @@
+.main {
+  overflow: hidden;
+}
+
+.title {
+  color: #132aff;
+}
+
+.landing {
+  position: relative;
+  background: no-repeat url("../../image/movie.jpeg");
+  background-position: center;
+  height: 92.2vh;
+}
+
+.landing-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.box {
+  background-color: darkgray;
+  width: 500px;
+  height: 200px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #eee;
+}
+
+.box h1 {
+  margin: 0;
+}
+
+.link {
+  margin: 10px;
+  padding: 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.link.login {
+  background-color: aqua;
+}
+
+.link.signup {
+  background-color: blanchedalmond;
+}

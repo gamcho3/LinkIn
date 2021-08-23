@@ -6,6 +6,7 @@ const User = require("../../models/User");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 
+//sign up
 router.post(
   "/",
   body("password", "password is required").isLength({ min: 6 }),

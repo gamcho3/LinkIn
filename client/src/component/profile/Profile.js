@@ -1,17 +1,23 @@
 import React from "react";
-
-const Profile = () => {
+import { Fragment } from "react";
+import { connect } from "react-redux";
+const Profile = ({ user: { name, email } }) => {
   return (
-    <li>
+    <Fragment>
       <div>
-        <img />
-        <h2>name</h2>
         <div>
-            
+          <p>{name}</p>
+        </div>
+        <div>
+          <p>{email}</p>
         </div>
       </div>
-    </li>
+    </Fragment>
   );
 };
 
-export default Profile;
+const mapStateToProps = (state) => ({
+  user: state.auth.user,
+});
+
+export default connect(mapStateToProps)(Profile);

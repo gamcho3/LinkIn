@@ -6,12 +6,16 @@ const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const config = require("config");
 const jwt = require("jsonwebtoken");
-//get user
+
+// @route    GET api/auth
+// @desc     Get user by token
+// @access   Private
 router.get("/", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
     res.json(user);
   } catch (error) {
+    console.log(error.message);
     res.status(401).json({ msg: "error server" });
   }
 });

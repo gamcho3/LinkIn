@@ -1,0 +1,25 @@
+.control {
+  margin-bottom: 0.5rem;
+}
+
+.control label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: cornflowerblue;
+}
+
+.control input {
+  font: inherit;
+  width: 80%;
+  height: 2rem;
+  color: #38015c;
+  text-align: left;
+  border-radius: 1px;
+  border: 1px solid purple;
+  padding: 0.25rem;
+}
+
+.control.error input {
+  border: 1px solid red;
+}
