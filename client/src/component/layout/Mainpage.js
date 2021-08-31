@@ -1,8 +1,12 @@
 import React from "react";
 import classes from "./Mainpage.module.css";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-const Mainpage = () => {
+import { Link, Redirect } from "react-router-dom";
+import PropTypes from "prop-types";
+const Mainpage = ({ auth: { isAuthenticated } }) => {
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />;
+  }
   return (
     <div className={classes.main}>
       <section className={classes["landing"]}>
@@ -31,8 +35,12 @@ const Mainpage = () => {
   );
 };
 
+Mainpage.propTypes = {
+  auth: PropTypes.object.isRequired,
+};
+
 const mapStateToProps = (state) => ({
-  user: state.auth.user,
+  auth: state.auth,
 });
 
 export default connect(mapStateToProps)(Mainpage);

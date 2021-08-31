@@ -1,6 +1,5 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Navbar from "./component/layout/Navbar";
 import MainPage from "./component/layout/Mainpage";
 import Login from "./component/auth/Login";
 import { Fragment, useEffect } from "react";
@@ -15,6 +14,9 @@ import AddPost from "./component/post/AddPost";
 import NotFound from "./component/layout/NotFound";
 import dashboard from "./component/dashboard/Dashboard";
 import PrivateRoute from "./component/routing/privateRoute";
+import Alert from "./component/layout/Alert";
+import Layout from "./component/layout/Layout";
+import CreateProfile from "./component/profile-forms/CreateProfile";
 const App = () => {
   useEffect(() => {
     if (localStorage.token) {
@@ -25,9 +27,9 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router>
-        <Fragment>
-          <Navbar />
+        <Layout>
           <Route path="/" exact component={MainPage} />
+
           <section>
             <Switch>
               <Route path="/login" exact component={Login} />
@@ -36,10 +38,15 @@ const App = () => {
               <Route path="/mypost" exact component={MyPost} />
               <Route path="/addpost" exact component={AddPost} />
               <PrivateRoute path="/dashboard" exact component={dashboard} />
+              <PrivateRoute
+                path="/create-profile"
+                exact
+                component={CreateProfile}
+              />
               <Route component={NotFound} />
             </Switch>
           </section>
-        </Fragment>
+        </Layout>
       </Router>
     </Provider>
   );

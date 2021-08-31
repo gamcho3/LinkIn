@@ -5,10 +5,11 @@ import classes from "./Register.module.css";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { register } from "../../actions/auth";
+import { setAlert } from "../../actions/alert";
 //import { setAlert } from "../../actions/alert";
 //import { VALIDATOR_REQUIRE } from "../../actions/validator";
 //import { validate } from "../../actions/valid";
-const Register = ({ register, isAuthenticated }) => {
+const Register = ({ register, isAuthenticated, setAlert }) => {
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -20,7 +21,11 @@ const Register = ({ register, isAuthenticated }) => {
 
   const formHandler = (e) => {
     e.preventDefault();
-    register({ name, email, password });
+    if (password !== password2) {
+      setAlert("wrong", "not correct", "error");
+    } else {
+      register({ name, email, password });
+    }
   };
 
   if (isAuthenticated) {
@@ -83,4 +88,4 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { register })(Register);
+export default connect(mapStateToProps, { register, setAlert })(Register);

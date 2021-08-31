@@ -9,6 +9,7 @@
 .landing {
   position: relative;
   background: no-repeat url("../../image/movie.jpeg");
+  background-size: 100vw 95vh;
   background-position: center;
   height: 92.2vh;
 }

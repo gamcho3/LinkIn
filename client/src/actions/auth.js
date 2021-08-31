@@ -6,6 +6,7 @@ import {
   LOGOUT,
   LOAD_USER,
   AUTH_ERROR,
+  CLEAR_PROFILE,
 } from "./type";
 import api from "../utils/api";
 
@@ -23,7 +24,14 @@ export const login = (formData) => async (dispatch) => {
   }
 };
 
-export const logout = () => ({ type: LOGOUT });
+export const logout = () => async (dispatch) => {
+  dispatch({
+    type: LOGOUT,
+  });
+  dispatch({
+    type: CLEAR_PROFILE,
+  });
+};
 
 export const register = (user) => async (dispatch) => {
   try {

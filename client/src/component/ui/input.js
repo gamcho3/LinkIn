@@ -1,8 +1,7 @@
 import React from "react";
 import classes from "./input.module.css";
 import { connect } from "react-redux";
-import { validAction } from "../../actions/valid";
-import { validate } from "../../actions/validator";
+
 const Input = (props) => {
   const { id, type, value, onChange, validators } = props;
 

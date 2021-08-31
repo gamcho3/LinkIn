@@ -12,3 +12,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.btn {
+  border: 0;
+  padding: 6px 10px;
+  margin: 5px;
+  border-radius: 3px;
+  background-color: aquamarine;
+}
+
+.btn:hover {
+  cursor: pointer;
+}

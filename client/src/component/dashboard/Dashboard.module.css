@@ -1,0 +1,13 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table {
+  border: solid 1px;
+}
+
+.thead {
+  border: solid 1px;
+}

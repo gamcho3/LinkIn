@@ -29,7 +29,7 @@ router.post(
   [
     auth,
     [
-      body("adress", "adress is required").not().isEmpty(),
+      body("address", "address is required").not().isEmpty(),
       body("genres", "genres is required").not().isEmpty(),
     ],
   ],
@@ -38,12 +38,13 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { adress, genres } = req.body;
+    const { address, genres, gender } = req.body;
 
     //profile 수정하기
     const profileFields = {};
     profileFields.user = req.user.id; //user목록에 id넣기
-    profileFields.adress = adress;
+    profileFields.address = address;
+    profileFields.gender = gender;
     if (genres) {
       profileFields.genres = genres.split(",").map((genre) => genre.trim());
     }

@@ -9,15 +9,14 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
     <ul className={classes.list}>
       <li>
         <Link to="/addpost" className={classes.link}>
-          my post
+          Mypost
         </Link>
       </li>
       <li>
-        <a href="!#" className={classes.link}>
-          <i className="fas fa-shopping-cart"></i>
-        </a>
+        <Link to="/dashboard" className={classes.link}>
+          Dashboard
+        </Link>
       </li>
-
       <li>
         <a href="#!" className={classes.link} onClick={logout}>
           LOGOUT

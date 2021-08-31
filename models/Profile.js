@@ -5,12 +5,16 @@ const ProfileSchema = new mongoose.Schema({
     type: Schema.Types.ObjectId,
     ref: "user", //user 스키마를 불러옴
   },
-  adress: {
+  address: {
     type: String,
     required: true,
   },
   genres: {
     type: [String],
+    required: true,
+  },
+  gender: {
+    type: String,
     required: true,
   },
   experience: [
