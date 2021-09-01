@@ -13,6 +13,7 @@ const initialState = {
   isAuthenticated: false,
   loading: true,
   user: "",
+  errors: [],
 };
 
 const auth = (state = initialState, action) => {
@@ -49,6 +50,7 @@ const auth = (state = initialState, action) => {
         token: null,
         loading: false,
       };
+
     default:
       return state;
   }

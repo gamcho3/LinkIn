@@ -1,0 +1,8 @@
+.link {
+  background-color: rgb(238, 238, 238);
+
+  padding: 0.5rem 1.5rem;
+  margin: 5px 10px;
+  text-decoration: none;
+  border-radius: 6px;
+}

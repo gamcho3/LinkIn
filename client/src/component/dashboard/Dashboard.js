@@ -5,7 +5,9 @@ import { getCurrentProfile } from "../../actions/profile";
 import Spinner from "../layout/Spinner";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
+import Button from "../ui/Button";
 import classes from "./Dashboard.module.css";
+import DashboardAction from "./DashboardAction";
 const Dashboard = ({
   profile: { profile, loading },
   getCurrentProfile,
@@ -18,37 +20,23 @@ const Dashboard = ({
   return loading && profile === null ? (
     <Spinner />
   ) : (
-    <Fragment>
-      <h1>DASHBOARD</h1>
-      <p>Welcome {user.name}</p>
+    <div className={classes.main}>
+      <h1>Dashboard</h1>
+      <p>Welcome, {user.name}</p>
       {profile ? (
         <Fragment>
-          <div className={classes.main}>
-            <table className={classes.table}>
-              <thead>
-                <tr>
-                  <td colSpan="2">PROFIlE</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{profile.gender}</td>
-                  <td>{profile.address}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <DashboardAction />
         </Fragment>
       ) : (
         <Fragment>
           you not have yet profile. please add some info
           <br />
           <Link to="/create-profile">
-            <button className="btn">create Profile</button>
+            <Button type="button" name="create profile" />
           </Link>
         </Fragment>
       )}
-    </Fragment>
+    </div>
   );
 };
 

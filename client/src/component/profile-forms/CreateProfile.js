@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import classes from "./CreateProfile.module.css";
 import { createProfile } from "../../actions/profile";
 import { Link, withRouter } from "react-router-dom";
+import Button from "../ui/Button";
 const CreateProfile = ({ createProfile, history }) => {
   const addressRef = useRef();
   const genderRef = useRef();
@@ -69,7 +70,7 @@ const CreateProfile = ({ createProfile, history }) => {
             onChange={changeHandelr}
           />
         </div>
-        <button>submit</button>
+        <Button type="sumbit" name="create" />
       </form>
     </div>
   );

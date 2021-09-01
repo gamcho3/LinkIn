@@ -15,11 +15,3 @@
 .actions {
   margin-top: 1.5rem;
 }
-
-.actions button {
-  cursor: pointer;
-  background-color: antiquewhite;
-  border-radius: 5px;
-  border: 1px solid antiquewhite;
-  padding: 0.5rem 2.5rem;
-}

@@ -20,7 +20,7 @@ export const login = (formData) => async (dispatch) => {
     });
   } catch (error) {
     const errors = error.response.data.errors;
-    console.log(errors);
+
     if (errors) {
       errors.forEach((error) =>
         dispatch(setAlert("error!", error.msg, "error"))
@@ -51,6 +51,13 @@ export const register = (user) => async (dispatch) => {
       payload: res.data,
     });
   } catch (error) {
+    const errors = error.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) =>
+        dispatch(setAlert("error!", error.msg, "error"))
+      );
+    }
     dispatch({
       type: REGISTER_FAIL,
     });

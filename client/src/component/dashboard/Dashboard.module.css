@@ -1,13 +1,12 @@
 .main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 10px;
 }
 
-.table {
-  border: solid 1px;
+.main h1 {
+  color: forestgreen;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
-.thead {
-  border: solid 1px;
+.main p {
+  font-weight: bold;
 }

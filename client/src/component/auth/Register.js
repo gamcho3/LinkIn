@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Input from "../ui/input";
 import classes from "./Register.module.css";
@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { register } from "../../actions/auth";
 import { setAlert } from "../../actions/alert";
-
+import Button from "../ui/Button";
 const Register = ({ register, isAuthenticated, setAlert }) => {
   const [data, setData] = useState({
     name: "",
@@ -49,6 +49,7 @@ const Register = ({ register, isAuthenticated, setAlert }) => {
           id="password"
           name="password"
           value={password}
+          min="6"
           onChange={(e) =>
             setData((prev) => ({ ...prev, [e.target.id]: e.target.value }))
           }
@@ -75,7 +76,7 @@ const Register = ({ register, isAuthenticated, setAlert }) => {
         />
 
         <div className={classes.actions}>
-          <button type="submit">confirm</button>
+          <Button type="submit" name="confirm" />
         </div>
       </form>
     </div>
@@ -84,6 +85,7 @@ const Register = ({ register, isAuthenticated, setAlert }) => {
 
 Register.propTypes = {
   register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({

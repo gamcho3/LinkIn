@@ -1,6 +1,6 @@
 import { CREATE_PROFILE, GET_PROFILE, PROFILE_ERROR } from "./type";
 import api from "../utils/api";
-
+import { setAlert } from "./alert";
 //get current profile
 export const getCurrentProfile = () => async (dispatch) => {
   try {
@@ -45,10 +45,24 @@ export const createProfile =
         type: CREATE_PROFILE,
         payload: res.data,
       });
+      dispatch(
+        setAlert(
+          "success!",
+          edit ? "update completed" : "create completed",
+          "success"
+        )
+      );
       if (!edit) {
         history.push("/dashboard");
       }
     } catch (error) {
+      const errors = error.response.data.errors;
+      console.log(errors);
+      if (errors) {
+        errors.forEach((error) =>
+          dispatch(setAlert("error!", error.msg, "error"))
+        );
+      }
       dispatch({
         type: PROFILE_ERROR,
       });

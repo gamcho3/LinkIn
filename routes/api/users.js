@@ -9,7 +9,7 @@ const config = require("config");
 //sign up
 router.post(
   "/",
-  body("password", "password is required").isLength({ min: 6 }),
+  body("password", "password is required and at least 6").isLength({ min: 6 }),
   body("name", "name is required").not().isEmpty(),
   body("email").isEmail(),
   async (req, res) => {
