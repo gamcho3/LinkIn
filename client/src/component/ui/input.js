@@ -3,11 +3,11 @@ import classes from "./input.module.css";
 import { connect } from "react-redux";
 
 const Input = (props) => {
-  const { id, type, value, onChange, validators } = props;
+  const { id, type, value, onChange, validators, name } = props;
 
   return (
     <div className={`${classes.control}`}>
-      <label htmlFor={id}>{props.id}</label>
+      <label htmlFor={id}>{name}</label>
       <input type={type} id={id} value={value} onChange={onChange}></input>
       <p></p>
     </div>

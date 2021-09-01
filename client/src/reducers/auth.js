@@ -1,8 +1,8 @@
 import {
   LOGIN_SUCCESS,
   REGISTER_SUCCESS,
-  REGISTER_FAIL,
-  LOGIN_FAIL,
+  //REGISTER_FAIL,
+  //LOGIN_FAIL,
   LOGOUT,
   LOAD_USER,
   AUTH_ERROR,
@@ -43,8 +43,6 @@ const auth = (state = initialState, action) => {
       };
     case AUTH_ERROR:
     case LOGOUT:
-    case LOGIN_FAIL:
-    case REGISTER_FAIL:
       return {
         ...state,
         isAuthenticated: false,

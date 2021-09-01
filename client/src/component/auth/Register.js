@@ -6,9 +6,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { register } from "../../actions/auth";
 import { setAlert } from "../../actions/alert";
-//import { setAlert } from "../../actions/alert";
-//import { VALIDATOR_REQUIRE } from "../../actions/validator";
-//import { validate } from "../../actions/valid";
+
 const Register = ({ register, isAuthenticated, setAlert }) => {
   const [data, setData] = useState({
     name: "",
@@ -22,7 +20,7 @@ const Register = ({ register, isAuthenticated, setAlert }) => {
   const formHandler = (e) => {
     e.preventDefault();
     if (password !== password2) {
-      setAlert("wrong", "not correct", "error");
+      setAlert("wrong", "password is not match", "error");
     } else {
       register({ name, email, password });
     }
@@ -39,6 +37,7 @@ const Register = ({ register, isAuthenticated, setAlert }) => {
         <Input
           type="email"
           id="email"
+          name="email"
           value={email}
           onChange={(e) =>
             setData((prev) => ({ ...prev, [e.target.id]: e.target.value }))
@@ -48,6 +47,7 @@ const Register = ({ register, isAuthenticated, setAlert }) => {
         <Input
           type="password"
           id="password"
+          name="password"
           value={password}
           onChange={(e) =>
             setData((prev) => ({ ...prev, [e.target.id]: e.target.value }))
@@ -57,6 +57,7 @@ const Register = ({ register, isAuthenticated, setAlert }) => {
         <Input
           type="password"
           id="password2"
+          name="password confirm"
           value={password2}
           onChange={(e) =>
             setData((prev) => ({ ...prev, [e.target.id]: e.target.value }))
@@ -66,6 +67,7 @@ const Register = ({ register, isAuthenticated, setAlert }) => {
         <Input
           type="name"
           id="name"
+          name="name"
           value={name}
           onChange={(e) =>
             setData((prev) => ({ ...prev, [e.target.id]: e.target.value }))

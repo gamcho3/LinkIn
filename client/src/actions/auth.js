@@ -8,6 +8,7 @@ import {
   AUTH_ERROR,
   CLEAR_PROFILE,
 } from "./type";
+import { setAlert } from "./alert";
 import api from "../utils/api";
 
 export const login = (formData) => async (dispatch) => {
@@ -18,6 +19,14 @@ export const login = (formData) => async (dispatch) => {
       payload: res.data,
     });
   } catch (error) {
+    const errors = error.response.data.errors;
+    console.log(errors);
+    if (errors) {
+      errors.forEach((error) =>
+        dispatch(setAlert("error!", error.msg, "error"))
+      );
+    }
+
     dispatch({
       type: LOGIN_FAIL,
     });
