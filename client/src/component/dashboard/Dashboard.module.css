@@ -3,8 +3,7 @@
 }
 
 .main h1 {
-  color: forestgreen;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: var(--h1--color);
 }
 
 .main p {

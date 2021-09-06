@@ -8,11 +8,8 @@ import { Link } from "react-router-dom";
 import Button from "../ui/Button";
 import classes from "./Dashboard.module.css";
 import DashboardAction from "./DashboardAction";
-const Dashboard = ({
-  profile: { profile, loading },
-  getCurrentProfile,
-  auth: { user },
-}) => {
+import Experience from "./Experience";
+const Dashboard = ({ profile: { profile, loading }, getCurrentProfile }) => {
   useEffect(() => {
     getCurrentProfile();
   }, [getCurrentProfile]);
@@ -22,10 +19,11 @@ const Dashboard = ({
   ) : (
     <div className={classes.main}>
       <h1>Dashboard</h1>
-      <p>Welcome, {user.name}</p>
+      <p>Welcome, {profile.user.name}</p>
       {profile ? (
         <Fragment>
           <DashboardAction />
+          <Experience experience={profile.experience} />
         </Fragment>
       ) : (
         <Fragment>
@@ -43,12 +41,10 @@ const Dashboard = ({
 Dashboard.prototypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   profile: state.profile,
-  auth: state.auth,
 });
 
 export default connect(mapStateToProps, { getCurrentProfile })(Dashboard);

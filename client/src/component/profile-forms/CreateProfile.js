@@ -36,7 +36,7 @@ const CreateProfile = ({ createProfile, history }) => {
     <div className={classes.container}>
       <h1>create your porfile</h1>
       <form className={classes.form} onSubmit={formHandler}>
-        <div>
+        <div className={classes.box}>
           <label htmlFor="gender">choose your gender: </label>
           <select
             id="gender"
@@ -48,7 +48,7 @@ const CreateProfile = ({ createProfile, history }) => {
             <option value="female">female</option>
           </select>
         </div>
-        <div>
+        <div className={classes.box}>
           <label htmlFor="address">enter your address</label>
           <input
             type="text"
@@ -59,7 +59,7 @@ const CreateProfile = ({ createProfile, history }) => {
             onChange={changeHandelr}
           />
         </div>
-        <div>
+        <div className={classes.box}>
           <label htmlFor="genre">enter your favorite genre</label>
           <input
             type="text"

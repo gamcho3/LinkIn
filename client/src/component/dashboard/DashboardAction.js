@@ -4,13 +4,11 @@ import { Link } from "react-router-dom";
 const DashboardAction = () => {
   return (
     <div>
-      <Link className={classes.link}>
-        <i className="fas fa-user-circle text-primary" to="/edit-profile" />{" "}
-        Edit Profile
+      <Link className={classes.link} to="/edit-profile">
+        <i className="fas fa-user-circle text-primary" /> Edit Profile
       </Link>
-      <Link className={classes.link}>
-        <i className="fas fa-user-circle text-primary" to="/add-experience" />{" "}
-        add Experience
+      <Link className={classes.link} to="/add-experience">
+        <i className="fas fa-user-circle text-primary" /> add Experience
       </Link>
     </div>
   );

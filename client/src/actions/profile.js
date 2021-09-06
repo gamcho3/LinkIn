@@ -57,7 +57,6 @@ export const createProfile =
       }
     } catch (error) {
       const errors = error.response.data.errors;
-      console.log(errors);
       if (errors) {
         errors.forEach((error) =>
           dispatch(setAlert("error!", error.msg, "error"))
@@ -68,3 +67,50 @@ export const createProfile =
       });
     }
   };
+
+export const addExperience = (formData, history) => async (dispatch) => {
+  try {
+    const res = await api.put("/profile/experience", formData);
+
+    dispatch({
+      type: CREATE_PROFILE,
+      payload: res.data,
+    });
+    dispatch(setAlert("success!", "create experience", "success"));
+
+    history.push("/dashboard");
+  } catch (error) {
+    const errors = error.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) =>
+        dispatch(setAlert("error!", error.msg, "error"))
+      );
+    }
+    dispatch({
+      type: PROFILE_ERROR,
+    });
+  }
+};
+
+export const deleteExperience = (id) => async (dispatch) => {
+  try {
+    const res = await api.delete(`/profile/experience/${id}`);
+    dispatch({
+      type: CREATE_PROFILE,
+      payload: res.data,
+    });
+    dispatch(setAlert("success!", "delete success", "success"));
+  } catch (error) {
+    const errors = error.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) =>
+        dispatch(setAlert("error!", error.msg, "error"))
+      );
+    }
+    dispatch({
+      type: PROFILE_ERROR,
+    });
+  }
+};

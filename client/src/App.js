@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MainPage from "./component/layout/Mainpage";
 import Login from "./component/auth/Login";
-import { Fragment, useEffect } from "react";
+import { useEffect } from "react";
 import Register from "./component/auth/Register";
 import Profile from "./component/profile/Profile";
 import MyPost from "./component/post/MyPost";
@@ -14,9 +14,11 @@ import AddPost from "./component/post/AddPost";
 import NotFound from "./component/layout/NotFound";
 import dashboard from "./component/dashboard/Dashboard";
 import PrivateRoute from "./component/routing/privateRoute";
-import Alert from "./component/layout/Alert";
+//import Alert from "./component/layout/Alert";
 import Layout from "./component/layout/Layout";
 import CreateProfile from "./component/profile-forms/CreateProfile";
+import EditProfile from "./component/profile-forms/EditProfile";
+import AddExperience from "./component/profile-forms/AddExperience";
 const App = () => {
   useEffect(() => {
     if (localStorage.token) {
@@ -42,6 +44,16 @@ const App = () => {
                 path="/create-profile"
                 exact
                 component={CreateProfile}
+              />
+              <PrivateRoute
+                path="/edit-profile"
+                exact
+                component={EditProfile}
+              />
+              <PrivateRoute
+                path="/add-experience"
+                exact
+                component={AddExperience}
               />
               <Route component={NotFound} />
             </Switch>

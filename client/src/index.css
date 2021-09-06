@@ -24,3 +24,7 @@ code {
 .btn:hover {
   cursor: pointer;
 }
+
+:root {
+  --h1--color: cadetblue;
+}

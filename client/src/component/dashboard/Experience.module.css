@@ -1,0 +1,36 @@
+.table {
+  width: 500px;
+}
+
+.th {
+  background-color: darkgrey;
+  padding: 5px 10px;
+}
+
+.row {
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+}
+
+.row td {
+  padding: 5px 10px;
+}
+
+.row i {
+  display: none;
+  text-align: end;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateY(25%);
+  font-size: 1rem;
+}
+
+.row:hover {
+  background-color: azure;
+}
+
+.row:hover i {
+  display: block;
+}

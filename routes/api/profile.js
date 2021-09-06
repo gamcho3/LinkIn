@@ -134,14 +134,17 @@ router.put(
     auth,
     [
       body("title", "title is required").not().isEmpty(),
-      body("title", "title is required").not().isEmpty(),
+      body("from", "date is required")
+        .notEmpty()
+        .custom((value, { req }) => (req.body.to ? value < req.body.to : true)),
     ],
   ],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ errors: errors.array() });
     }
+
     const { title, from, to, current } = req.body; //입력된값 불러오기
     const newExp = {
       //값 저장
@@ -150,13 +153,13 @@ router.put(
       to,
       current,
     };
+
     try {
       const profile = await Profile.findOne({ user: req.user.id });
       profile.experience.unshift(newExp);
       await profile.save();
       res.json(profile);
     } catch (error) {
-      console.log(error.message);
       res.status(500).send("server errors");
     }
   }

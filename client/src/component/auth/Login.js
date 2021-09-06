@@ -24,10 +24,12 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <div className={classes.container}>
+      <h1>LOGIN</h1>
       <form onSubmit={formHandler}>
         <Input
           id="email"
           type="email"
+          name="email"
           value={email}
           onChange={(e) =>
             setData((prev) => ({ ...prev, [e.target.id]: e.target.value }))
@@ -36,6 +38,7 @@ const Login = ({ login, isAuthenticated }) => {
         <Input
           id="password"
           type="password"
+          name="password"
           value={password}
           onChange={(e) =>
             setData((prev) => ({ ...prev, [e.target.id]: e.target.value }))

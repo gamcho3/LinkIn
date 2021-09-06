@@ -1,0 +1,22 @@
+.main {
+  padding: 10px;
+}
+
+.main h1 {
+  color: var(--h1--color);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1.2rem;
+}
+
+.form-group {
+  margin: 5px 5px;
+}
+
+.form-group input {
+  padding: 5px 10px;
+}
