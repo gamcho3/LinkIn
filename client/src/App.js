@@ -5,6 +5,7 @@ import Login from "./component/auth/Login";
 import { useEffect } from "react";
 import Register from "./component/auth/Register";
 import Profile from "./component/profile/Profile";
+import Profiles from "./component/profile/Profiles";
 import MyPost from "./component/post/MyPost";
 import { Provider } from "react-redux";
 import store from "./store";
@@ -55,6 +56,7 @@ const App = () => {
                 exact
                 component={AddExperience}
               />
+              <PrivateRoute path="/profiles" exact component={Profiles} />
               <Route component={NotFound} />
             </Switch>
           </section>

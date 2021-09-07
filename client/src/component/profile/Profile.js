@@ -1,7 +1,8 @@
-import React from "react";
-import { Fragment } from "react";
+import React, { useEffect, Fragment } from "react";
+
 import { connect } from "react-redux";
 const Profile = ({ user: { name, email } }) => {
+  useEffect(() => {}, []);
   return (
     <Fragment>
       <div>

@@ -1,4 +1,11 @@
-import { CREATE_PROFILE, GET_PROFILE, PROFILE_ERROR } from "./type";
+import {
+  CREATE_PROFILE,
+  GET_PROFILE,
+  PROFILE_ERROR,
+  GET_PROFILES,
+  CLEAR_PROFILE,
+  ACCOUNT_DELETE,
+} from "./type";
 import api from "../utils/api";
 import { setAlert } from "./alert";
 //get current profile
@@ -20,12 +27,29 @@ export const getCurrentProfile = () => async (dispatch) => {
   }
 };
 
+//get profile by id
+export const getProfileById = (id) => (dispatch) => {
+  try {
+    const res = api.get(`/profile/user/${id}`);
+    dispatch({
+      type: GET_PROFILE,
+      payload: res.data,
+    });
+  } catch (error) {
+    console.log(error);
+    dispatch(setAlert("error!", "error load user", "error"));
+  }
+};
+
 //get profile all
-export const getProfile = () => async (dispatch) => {
+export const getProfiles = () => async (dispatch) => {
+  dispatch({
+    type: CLEAR_PROFILE,
+  });
   try {
     const res = await api.get("/profile");
     dispatch({
-      type: GET_PROFILE,
+      type: GET_PROFILES,
       payload: res.data,
     });
   } catch (error) {
@@ -109,6 +133,22 @@ export const deleteExperience = (id) => async (dispatch) => {
         dispatch(setAlert("error!", error.msg, "error"))
       );
     }
+    dispatch({
+      type: PROFILE_ERROR,
+    });
+  }
+};
+
+export const deleteAccount = () => async (dispatch) => {
+  try {
+    await api.delete("/profile");
+    dispatch({
+      type: ACCOUNT_DELETE,
+    });
+    dispatch({
+      type: CLEAR_PROFILE,
+    });
+  } catch (error) {
     dispatch({
       type: PROFILE_ERROR,
     });

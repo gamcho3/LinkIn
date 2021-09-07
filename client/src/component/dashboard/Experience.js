@@ -25,7 +25,7 @@ const Experience = ({ experience, deleteExperience }) => {
         ) : (
           <Moment format="YYYY/MM/DD">{exp.to}</Moment>
         )}
-        <i class="far fa-window-close"></i>
+        <i className="far fa-window-close"></i>
       </td>
     </tr>
   ));

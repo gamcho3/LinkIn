@@ -6,6 +6,7 @@ import {
   LOGOUT,
   LOAD_USER,
   AUTH_ERROR,
+  ACCOUNT_DELETE,
 } from "../actions/type";
 
 const initialState = {
@@ -42,6 +43,7 @@ const auth = (state = initialState, action) => {
         isAuthenticated: true,
         loading: false,
       };
+    case ACCOUNT_DELETE:
     case AUTH_ERROR:
     case LOGOUT:
       return {
