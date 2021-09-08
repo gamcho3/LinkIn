@@ -14,3 +14,7 @@ export const CLEAR_PROFILE = "CLEAR_PROFILE";
 export const PROFILE_ERROR = "PROFILE_ERROR";
 export const CREATE_PROFILE = "CREATE_PROFILE";
 export const ACCOUNT_DELETE = "ACCOUNT_DELETE";
+export const ADD_POST = "ADD_POST";
+export const GET_POST = "GET_POST";
+export const DELETE_POST = "DELETE_POST";
+export const ERROR_POST = "ERROR_POST";

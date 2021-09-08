@@ -20,6 +20,7 @@ import Layout from "./component/layout/Layout";
 import CreateProfile from "./component/profile-forms/CreateProfile";
 import EditProfile from "./component/profile-forms/EditProfile";
 import AddExperience from "./component/profile-forms/AddExperience";
+import Posts from "./component/posts/Posts";
 const App = () => {
   useEffect(() => {
     if (localStorage.token) {
@@ -57,6 +58,7 @@ const App = () => {
                 exact
                 component={AddExperience}
               />
+              <PrivateRoute path="/post" exact component={Posts} />
 
               <Route component={NotFound} />
             </Switch>

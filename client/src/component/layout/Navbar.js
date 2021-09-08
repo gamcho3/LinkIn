@@ -8,8 +8,8 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
   const authLink = (
     <ul className={classes.list}>
       <li>
-        <Link to="/addpost" className={classes.link}>
-          Mypost
+        <Link to="/post" className={classes.link}>
+          POST
         </Link>
       </li>
       <li>
