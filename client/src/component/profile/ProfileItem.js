@@ -1,12 +1,12 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import classes from "./ProfileItem.module.css";
 const ProfileItem = ({ profile: { user, genres } }) => {
   const history = useHistory();
   const { name, _id } = user;
 
   const moveLink = () => {
-    history.push(`profile/user/${_id}`);
+    history.push(`profile/${_id}`);
   };
 
   return (

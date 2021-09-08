@@ -28,9 +28,9 @@ export const getCurrentProfile = () => async (dispatch) => {
 };
 
 //get profile by id
-export const getProfileById = (id) => (dispatch) => {
+export const getProfileById = (id) => async (dispatch) => {
   try {
-    const res = api.get(`/profile/user/${id}`);
+    const res = await api.get(`/profile/user/${id}`);
     dispatch({
       type: GET_PROFILE,
       payload: res.data,

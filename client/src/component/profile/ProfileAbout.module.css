@@ -1,0 +1,22 @@
+.profile-about {
+  background-color: rgb(242, 242, 242);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px 0px;
+}
+
+.profile-about h2 {
+  color: cadetblue;
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.skills {
+  display: flex;
+}
+
+.skill {
+  margin-right: 10px;
+}

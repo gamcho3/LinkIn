@@ -90,7 +90,7 @@ router.get("/", async (req, res) => {
 //@desc GET profile by id
 //@access public
 
-router.get("/user/:user_id", auth, async (req, res) => {
+router.get("/user/:user_id", async (req, res) => {
   try {
     const profile = await Profile.findOne({
       user: req.params.user_id,
@@ -99,7 +99,7 @@ router.get("/user/:user_id", auth, async (req, res) => {
     if (!profile) {
       res.status(400).json({ msg: "no profile please enter correct id" });
     }
-    res.json(profile);
+    return res.json(profile);
   } catch (error) {
     if (error.kind === "ObjectId") {
       res.status(400).json({ msg: "profile not found" });

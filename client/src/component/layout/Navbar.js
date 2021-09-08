@@ -38,6 +38,11 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
   const guestLink = (
     <ul className={classes.list}>
       <li>
+        <Link to="/profiles" className={classes.link}>
+          USER
+        </Link>
+      </li>
+      <li>
         <Link to="/register" className={classes.link}>
           <i className="fas fa-user-plus"></i>SIGNUP
         </Link>

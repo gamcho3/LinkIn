@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getCurrentProfile } from "../../actions/profile";
+import { loadUser } from "../../actions/auth";
 import Spinner from "../layout/Spinner";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
@@ -9,17 +10,23 @@ import Button from "../ui/Button";
 import classes from "./Dashboard.module.css";
 import DashboardAction from "./DashboardAction";
 import Experience from "./Experience";
-const Dashboard = ({ profile: { profile, loading }, getCurrentProfile }) => {
+const Dashboard = ({
+  profile: { profile, loading },
+  getCurrentProfile,
+  loadUser,
+  auth: { user },
+}) => {
   useEffect(() => {
     getCurrentProfile();
-  }, [getCurrentProfile]);
+    loadUser();
+  }, [getCurrentProfile, loadUser]);
 
-  return loading && profile === null ? (
+  return loading || profile === null ? (
     <Spinner />
   ) : (
     <div className={classes.main}>
       <h1>Dashboard</h1>
-      <p>Welcome, {profile.user.name}</p>
+      <p>Welcome, {user.name}</p>
       {profile ? (
         <Fragment>
           <DashboardAction />
@@ -45,6 +52,9 @@ Dashboard.prototypes = {
 
 const mapStateToProps = (state) => ({
   profile: state.profile,
+  auth: state.auth,
 });
 
-export default connect(mapStateToProps, { getCurrentProfile })(Dashboard);
+export default connect(mapStateToProps, { getCurrentProfile, loadUser })(
+  Dashboard
+);

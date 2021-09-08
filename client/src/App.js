@@ -37,9 +37,10 @@ const App = () => {
             <Switch>
               <Route path="/login" exact component={Login} />
               <Route path="/register" exact component={Register} />
-              <Route path="/profile" exact component={Profile} />
+              <Route path="/profile/:id" exact component={Profile} />
               <Route path="/mypost" exact component={MyPost} />
               <Route path="/addpost" exact component={AddPost} />
+              <Route path="/profiles" exact component={Profiles} />
               <PrivateRoute path="/dashboard" exact component={dashboard} />
               <PrivateRoute
                 path="/create-profile"
@@ -56,7 +57,7 @@ const App = () => {
                 exact
                 component={AddExperience}
               />
-              <PrivateRoute path="/profiles" exact component={Profiles} />
+
               <Route component={NotFound} />
             </Switch>
           </section>
