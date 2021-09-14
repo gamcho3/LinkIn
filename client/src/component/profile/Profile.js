@@ -36,8 +36,8 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
                 <h2>profile Experience</h2>
                 {profile.experience.length > 0 ? (
                   <Fragment>
-                    {profile.experience.map((exp, idx) => (
-                      <ProfileExperience experience={exp} key={idx} />
+                    {profile.experience.map((exp, index) => (
+                      <ProfileExperience experience={exp} key={index} />
                     ))}
                   </Fragment>
                 ) : (

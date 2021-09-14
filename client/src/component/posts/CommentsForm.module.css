@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  align-items: flex-start;
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 3px;
+}
+
+.container form {
+  width: 100%;
+}
+
+.password {
+  margin-top: 20px;
+  border: solid 1px rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  padding: 3px;
+  text-decoration: none;
+}
+
+.textarea {
+  resize: none;
+  width: 95%;
+  margin-top: 10px;
+  padding: 10px;
+  border: solid 1px rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  text-decoration: none;
+}
+
+.btn {
+  background-color: rgb(59, 59, 59);
+  color: #eee;
+  padding: 5px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.btn:disabled {
+  opacity: 0.3;
+}

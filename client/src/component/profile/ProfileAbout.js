@@ -7,9 +7,9 @@ const ProfileAbout = ({ profile: { genres } }) => {
     <div className={classes["profile-about"]}>
       <h2>favorite Genre</h2>
       <div className={classes.skills}>
-        {genres.map((genre, idx) => (
+        {genres.map((genre, index) => (
           <Fragment>
-            <div key={idx} className={classes.skill}>
+            <div key={index} className={classes.skill}>
               {genre}
             </div>
           </Fragment>

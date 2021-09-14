@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 35px;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+}
+
+.top h3 {
+  margin: 0;
+  margin-right: 5px;
+}
+
+.top span {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.del-box input {
+  opacity: 0.3;
+  width: 20%;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.del-box button {
+  background-color: rgb(37, 37, 37);
+  color: #eee;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 3px;
+  display: none;
+  cursor: pointer;
+}
+
+.container:hover .del-box button {
+  transition: ease 0.3s;
+  display: inline;
+}

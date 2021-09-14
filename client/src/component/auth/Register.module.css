@@ -1,5 +1,5 @@
 .container {
-  margin: 3rem auto;
+  margin: 0 auto;
   width: 95%;
   max-width: 25rem;
   padding: 1rem;
@@ -10,8 +10,4 @@
 
 .container h1 {
   text-align: center;
-}
-
-.actions {
-  margin-top: 1.5rem;
 }
