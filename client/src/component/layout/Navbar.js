@@ -17,20 +17,18 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
           USER
         </Link>
       </li>
+
       <li>
         <Link to="/dashboard" className={classes.link}>
-          Dashboard
+          <i className="fas fa-user-circle"></i>
+          <span style={{ fontSize: "0.5rem" }}>Dashboard</span>
         </Link>
       </li>
       <li>
         <a href="#!" className={classes.link} onClick={logout}>
-          LOGOUT
+          <i className="fas fa-sign-out-alt"></i>
+          <span style={{ fontSize: "0.5rem" }}>LOGOUT</span>
         </a>
-      </li>
-      <li>
-        <Link to="/profile" className={classes.link}>
-          <i className="fas fa-user-circle"></i>
-        </Link>
       </li>
     </ul>
   );
@@ -60,7 +58,7 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
       <nav className={classes.navbar}>
         <h1 className={classes.title}>
           <Link to="/" className={classes.link}>
-            MOVIE SHOP
+            DEV Connector
           </Link>
         </h1>
         {isAuthenticated ? authLink : guestLink}

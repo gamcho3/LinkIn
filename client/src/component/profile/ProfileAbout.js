@@ -5,7 +5,7 @@ import { Fragment } from "react";
 const ProfileAbout = ({ profile: { genres } }) => {
   return (
     <div className={classes["profile-about"]}>
-      <h2>favorite Genre</h2>
+      <h2>total skills</h2>
       <div className={classes.skills}>
         {genres.map((genre, index) => (
           <Fragment>

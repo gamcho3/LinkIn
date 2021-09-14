@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const DashboardAction = () => {
   return (
     <div>
-      <Link className={classes.link} to="/edit-profile">
+      <Link className={classes.link} to="/create-profile">
         <i className="fas fa-user-circle text-primary" /> Edit Profile
       </Link>
       <Link className={classes.link} to="/add-experience">

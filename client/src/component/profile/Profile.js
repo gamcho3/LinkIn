@@ -25,7 +25,7 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
               Back to profiles
             </Link>
             {auth.isAuthenticated && auth.user._id === profile.user._id && (
-              <Link className={classes.btn} to="/edit-profile">
+              <Link className={classes.btn} to="/create-profile">
                 Edit Profile
               </Link>
             )}

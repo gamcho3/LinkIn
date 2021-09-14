@@ -21,13 +21,14 @@ const Dashboard = ({
     loadUser();
   }, [getCurrentProfile, loadUser]);
 
-  return loading || profile === null ? (
+  console.log(loading);
+  return loading ? (
     <Spinner />
   ) : (
     <div className={classes.main}>
       <h1>Dashboard</h1>
       <p>Welcome, {user.name}</p>
-      {profile ? (
+      {profile !== null ? (
         <Fragment>
           <DashboardAction />
           <Experience experience={profile.experience} />

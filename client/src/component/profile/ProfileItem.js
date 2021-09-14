@@ -16,7 +16,7 @@ const ProfileItem = ({ profile: { user, genres } }) => {
         <p></p>
       </div>
       <div>
-        <p>favorite genre</p>
+        <p>skills</p>
         <ul>
           {genres.map((genre, idx) => (
             <li key={idx}>{genre}</li>

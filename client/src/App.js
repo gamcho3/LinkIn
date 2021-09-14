@@ -8,8 +8,7 @@ import setAuthToken from "./utils/setAuthToken";
 import { loadUser } from "./actions/auth";
 import Layout from "./component/layout/Layout";
 import Routes from "./component/routing/Routes";
-import EditProfile from "./component/profile-forms/EditProfile";
-import PrivateRoute from "./component/routing/privateRoute";
+
 const App = () => {
   useEffect(() => {
     if (localStorage.token) {
@@ -23,7 +22,6 @@ const App = () => {
         <Layout>
           <Switch>
             <Route path="/" exact component={MainPage} />
-            <PrivateRoute path="/edit-profile" exact component={EditProfile} />
             <Route component={Routes} />
           </Switch>
         </Layout>
