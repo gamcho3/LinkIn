@@ -1,7 +1,8 @@
 const express = require("express"); //express
 const connectDB = require("./config/db"); //db 연결
-const app = express();
 const path = require("path");
+const app = express();
+
 //connect server
 connectDB();
 
