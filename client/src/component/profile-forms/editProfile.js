@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import classes from "./EditProfile.module.css";
 import { createProfile, getCurrentProfile } from "../../actions/profile";
-import { withRouter } from "react-router-dom";
 import Button from "../ui/Button";
 const EditProfile = ({
   createProfile,
@@ -101,5 +100,5 @@ PropTypes.EditProfile = {
 };
 
 export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
-  withRouter(EditProfile)
+  EditProfile
 );
