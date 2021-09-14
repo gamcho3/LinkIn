@@ -11,7 +11,6 @@ import CreateProfile from "../profile-forms/CreateProfile";
 import AddExperience from "../profile-forms/AddExperience";
 import Posts from "../posts/Posts";
 import Post from "../posts/Post";
-import EditProfile from "../profile-forms/EditProfile";
 import classes from "./Routes.module.css";
 const Routes = () => {
   return (
@@ -23,7 +22,7 @@ const Routes = () => {
         <Route path="/profiles" exact component={Profiles} />
         <PrivateRoute path="/dashboard" exact component={dashboard} />
         <PrivateRoute path="/create-profile" exact component={CreateProfile} />
-        <PrivateRoute path="/edit-profile" exact component={EditProfile} />
+
         <PrivateRoute path="/add-experience" exact component={AddExperience} />
         <PrivateRoute path="/post" exact component={Posts} />
         <PrivateRoute path="/post/:id" exact component={Post} />
