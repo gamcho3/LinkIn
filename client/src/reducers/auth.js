@@ -46,6 +46,7 @@ const auth = (state = initialState, action) => {
     case ACCOUNT_DELETE:
     case AUTH_ERROR:
     case LOGOUT:
+    case LOGIN_FAIL:
       return {
         ...state,
         isAuthenticated: false,

@@ -5,3 +5,14 @@
 .main p {
   font-weight: bold;
 }
+
+.remove-account {
+  position: absolute;
+  bottom: 15px;
+  background-color: tomato;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 10px;
+  color: #eee;
+  cursor: pointer;
+}
