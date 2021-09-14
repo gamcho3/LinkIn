@@ -8,10 +8,10 @@ import NotFound from "../layout/NotFound";
 import dashboard from "../dashboard/Dashboard";
 import PrivateRoute from "../routing/privateRoute";
 import CreateProfile from "../profile-forms/CreateProfile";
-import EditProfile from "../profile-forms/EditProfile";
 import AddExperience from "../profile-forms/AddExperience";
 import Posts from "../posts/Posts";
 import Post from "../posts/Post";
+import EditProfile from "../profile-forms/EditProfile";
 import classes from "./Routes.module.css";
 const Routes = () => {
   return (
