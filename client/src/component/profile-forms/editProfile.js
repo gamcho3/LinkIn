@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import classes from "./CreateProfile.module.css";
+import classes from "./EditProfile.module.css";
 import { createProfile, getCurrentProfile } from "../../actions/profile";
 import { withRouter } from "react-router-dom";
 import Button from "../ui/Button";

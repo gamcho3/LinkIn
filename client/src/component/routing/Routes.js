@@ -8,7 +8,7 @@ import NotFound from "../layout/NotFound";
 import dashboard from "../dashboard/Dashboard";
 import PrivateRoute from "../routing/privateRoute";
 import CreateProfile from "../profile-forms/CreateProfile";
-//import EditProfile from "../profile-forms/EditProfile";
+import EditProfile from "../profile-forms/EditProfile";
 import AddExperience from "../profile-forms/AddExperience";
 import Posts from "../posts/Posts";
 import Post from "../posts/Post";
@@ -23,7 +23,7 @@ const Routes = () => {
         <Route path="/profiles" exact component={Profiles} />
         <PrivateRoute path="/dashboard" exact component={dashboard} />
         <PrivateRoute path="/create-profile" exact component={CreateProfile} />
-        {/* <PrivateRoute path="/edit-profile" exact component={EditProfile} /> */}
+        <PrivateRoute path="/edit-profile" exact component={EditProfile} />
         <PrivateRoute path="/add-experience" exact component={AddExperience} />
         <PrivateRoute path="/post" exact component={Posts} />
         <PrivateRoute path="/post/:id" exact component={Post} />
