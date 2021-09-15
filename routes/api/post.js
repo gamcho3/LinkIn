@@ -18,7 +18,7 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      res.status(401).json({ errors: errors.array() });
+      return res.status(401).json({ errors: errors.array() });
     }
     const { title, description } = req.body;
     const user = await User.findById(req.user.id).select("-password -email");
@@ -26,6 +26,7 @@ router.post(
       user: req.user.id,
       title,
       description,
+      name: user.name,
     };
     try {
       const post = new Post(newPost);
@@ -81,7 +82,7 @@ router.delete("/:id", auth, async (req, res) => {
     }
     if (post.user.toString() !== req.user.id) {
       //params.id 와 auth token으로 받은 userid 가 다르면
-      res.status(401).json({ msg: "user not authorized" });
+      return res.status(401).json({ msg: "user not authorized" });
     }
     await post.remove();
     res.json({ msg: "remove success" });
@@ -97,7 +98,7 @@ router.put("/like/:id", auth, async (req, res) => {
     const post = await Post.findById(req.params.id);
     //check if the post has already been liked
     if (post.likes.some((like) => like.user.toString() === req.user.id)) {
-      res.status(400).json({ msg: "post already liked" });
+      return res.status(400).json({ msg: "post already liked" });
     }
     post.likes.unshift({ user: req.user.id });
     await post.save();
@@ -111,7 +112,6 @@ router.put("/like/:id", auth, async (req, res) => {
 router.put("/unlike/:id", auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id); //post id를 통해 post 검색
-    console.log(req.user.id);
     post.likes = post.likes.filter(
       (like) => like.user.toString() !== req.user.id
     );
@@ -133,7 +133,7 @@ router.post("/comment/:id", [
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ errors: errors.array() });
     }
     try {
       const user = await User.findById(req.user.id).select("-password"); //password를 제외하고 user를 출력
@@ -165,12 +165,12 @@ router.delete("/comment/:id/:comment_id", auth, async (req, res) => {
 
     //코멘트 여부 확인
     if (!comment) {
-      res.status(404).json({ msg: "comment is not existed" });
+      return res.status(404).json({ msg: "comment is not existed" });
     }
 
     //user 체크
     if (comment.user.toString() !== req.user.id) {
-      res.status(404).json({ msg: "user not correct" });
+      return res.status(404).json({ msg: "user not correct" });
     }
     post.comments = post.comments.filter(
       (comment) => comment.id !== req.params.comment_id

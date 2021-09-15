@@ -97,7 +97,9 @@ router.get("/user/:user_id", async (req, res) => {
     }).populate("user", ["name"]);
     //params를 통해 id 입력
     if (!profile) {
-      res.status(400).json({ msg: "no profile please enter correct id" });
+      return res
+        .status(400)
+        .json({ msg: "no profile please enter correct id" });
     }
     return res.json(profile);
   } catch (error) {
