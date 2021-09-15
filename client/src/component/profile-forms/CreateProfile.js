@@ -60,7 +60,7 @@ const CreateProfile = ({ createProfile, history }) => {
           />
         </div>
         <div className={classes.box}>
-          <label htmlFor="genre">enter your favorite genre</label>
+          <label htmlFor="genre">enter your skills</label>
           <input
             type="text"
             id="genre"

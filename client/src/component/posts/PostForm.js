@@ -28,7 +28,7 @@ const PostForm = ({ addPost }) => {
     setFormData({ title: "", description: "" });
   };
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={submitHandler} className={classes.form}>
       <div className={classes["input-box"]}>
         <input
           className={classes.input}
