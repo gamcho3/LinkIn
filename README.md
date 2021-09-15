@@ -11,3 +11,10 @@
 1. 자신의 이력 올리기
 1. 게시글 올리기, 댓글
    - 게시글에 좋아요,싫어요 기능
+
+## 사용 언어
+
+1. BackEnd
+   - Node js,Express,Mongoose
+2. FrontEnd
+   - React,JavaScript,Redux
