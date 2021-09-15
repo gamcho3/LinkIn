@@ -1,10 +1,13 @@
 .main {
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   color: white;
   background-color: rgb(39, 39, 39);
-  width: 100vw;
-  height: 55px;
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
   padding: 5px 10px;
   z-index: 5;
 }
@@ -13,6 +16,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .title {

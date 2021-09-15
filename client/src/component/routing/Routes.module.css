@@ -1,6 +1,6 @@
 .section {
+  width: 100%;
   max-width: 1900px;
+  height: 100%;
   margin: auto;
-  padding: 0 2rem;
-  margin-top: 1rem;
 }

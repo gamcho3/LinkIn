@@ -20,7 +20,7 @@ const Post = ({ getPostById, post: { post, loading } }) => {
       {post === null || loading ? (
         <Spinner />
       ) : (
-        <Fragment>
+        <div className={classes.main}>
           <div className={classes.container}>
             <PostItem post={post} showAction={false} />
             <CommentsForm postId={postId} />
@@ -28,7 +28,7 @@ const Post = ({ getPostById, post: { post, loading } }) => {
           {post.comments.map((comment) => (
             <CommentItem comment={comment} key={comment._id} postId={postId} />
           ))}
-        </Fragment>
+        </div>
       )}
     </Fragment>
   );

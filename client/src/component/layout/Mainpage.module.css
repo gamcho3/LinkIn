@@ -5,10 +5,9 @@
 .landing {
   position: relative;
   background: no-repeat url("../../image/people.jpeg");
-  background-size: 100vw 95vh;
+  background-size: 100vw 100vh;
   background-position: center;
   height: 94vh;
-  overflow: hidden;
 }
 
 .landing::before {

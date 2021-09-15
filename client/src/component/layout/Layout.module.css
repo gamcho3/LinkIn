@@ -1,4 +1,9 @@
 .main {
+  position: fixed;
   width: 100vw;
-  padding: 100px 0px 0px 0px;
+  height: 93vh;
+  margin-top: 60px;
+  margin-bottom: 10px;
+  bottom: 0;
+  left: 0;
 }

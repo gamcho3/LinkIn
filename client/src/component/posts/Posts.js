@@ -18,18 +18,22 @@ const Posts = ({ getPost, post: { posts, loading } }) => {
         <Spinner />
       ) : (
         <Fragment>
-          <h1>Posts</h1>
-          <p>Welcome to the community</p>
-          <span className={classes.title}>당신의 의견을 올려주세요</span>
-          <div className={classes["total-box"]}>
-            <PostForm />
-            {posts.length > 0 && (
-              <div className={classes.posts}>
-                {posts.map((post) => (
-                  <PostItem post={post} key={post._id} />
-                ))}
-              </div>
-            )}
+          <div className={classes.main}>
+            <div className={classes["container-top"]}>
+              <h1>Posts</h1>
+              <p>Welcome to the community</p>
+              <span className={classes.title}>당신의 의견을 올려주세요</span>
+            </div>
+            <div className={classes["container-bottom"]}>
+              <PostForm />
+              {posts.length > 0 && (
+                <div className={classes.posts}>
+                  {posts.map((post) => (
+                    <PostItem post={post} key={post._id} />
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </Fragment>
       )}
