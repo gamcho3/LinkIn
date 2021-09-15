@@ -10,6 +10,7 @@
   justify-content: space-between;
   padding: 0px 10%;
   border-radius: 5px 5px 0 0;
+  z-index: 50;
 }
 
 .box h2 {
@@ -22,12 +23,14 @@
   margin: 0;
 }
 
-.success {
+.box.success {
   background-color: yellowgreen;
+  transition: all ease 1s;
 }
 
-.error {
+.box.error {
   background-color: tomato;
+  transition: all ease 1s;
 }
 
 @media (min-width: 700px) {

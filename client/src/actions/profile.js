@@ -139,11 +139,13 @@ export const deleteExperience = (id) => async (dispatch) => {
   }
 };
 
-export const deleteAccount = () => async (dispatch) => {
+export const deleteAccount = (password) => async (dispatch) => {
   try {
-    await api.delete("/profile");
+    const res = await api.post("/profile/delete", { password });
+    console.log(res.data);
     dispatch({
       type: ACCOUNT_DELETE,
+      payload: res.data,
     });
     dispatch({
       type: CLEAR_PROFILE,
@@ -152,5 +154,6 @@ export const deleteAccount = () => async (dispatch) => {
     dispatch({
       type: PROFILE_ERROR,
     });
+    dispatch(setAlert("error!", "invalid credential", "error"));
   }
 };

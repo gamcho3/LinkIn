@@ -5,6 +5,7 @@ import classes from "./Register.module.css";
 import { login } from "../../actions/auth";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import Button from "../ui/Button";
 const Login = ({ login, isAuthenticated }) => {
   const [data, setData] = useState({
     email: "",
@@ -44,7 +45,7 @@ const Login = ({ login, isAuthenticated }) => {
             setData((prev) => ({ ...prev, [e.target.id]: e.target.value }))
           }
         />
-        <button type="submit">enter</button>
+        <Button type="submit" name="LOGIN" />
       </form>
     </div>
   );

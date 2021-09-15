@@ -1,0 +1,32 @@
+.box {
+  color: #eee;
+  border: solid 1px black;
+  width: 300px;
+  background-color: #eee;
+}
+
+.input {
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 10px;
+}
+
+.content p {
+  color: red;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  margin-top: 10px;
+  border: none;
+  background-color: rgb(34, 34, 34);
+  border-radius: 5px;
+  color: #eee;
+  padding: 7px 0px;
+  cursor: pointer;
+}

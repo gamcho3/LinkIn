@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getCurrentProfile, deleteAccount } from "../../actions/profile";
+import { getCurrentProfile } from "../../actions/profile";
 import { loadUser } from "../../actions/auth";
 import Spinner from "../layout/Spinner";
 import { Fragment } from "react";
@@ -10,19 +10,20 @@ import Button from "../ui/Button";
 import classes from "./Dashboard.module.css";
 import DashboardAction from "./DashboardAction";
 import Experience from "./Experience";
+import Notify from "../ui/Notify";
 const Dashboard = ({
   profile: { profile, loading },
   getCurrentProfile,
   loadUser,
   auth: { user },
-  deleteAccount,
 }) => {
   useEffect(() => {
     getCurrentProfile();
     loadUser();
   }, [getCurrentProfile, loadUser]);
 
-  console.log(loading);
+  const [showNotify, setShowNotify] = useState(false);
+
   return loading ? (
     <Spinner />
   ) : (
@@ -33,9 +34,13 @@ const Dashboard = ({
         <Fragment>
           <DashboardAction />
           <Experience experience={profile.experience} />
-          <button className={classes["remove-account"]} onClick={deleteAccount}>
+          <button
+            className={classes["remove-account"]}
+            onClick={() => setShowNotify(true)}
+          >
             Remove my account
           </button>
+          {showNotify ? <Notify onClick={() => setShowNotify(false)} /> : ""}
         </Fragment>
       ) : (
         <Fragment>
@@ -53,6 +58,9 @@ const Dashboard = ({
 Dashboard.prototypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
+  deleteAccount: PropTypes.func.isRequired,
+  loadUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -63,5 +71,4 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
   getCurrentProfile,
   loadUser,
-  deleteAccount,
 })(Dashboard);

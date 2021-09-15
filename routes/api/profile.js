@@ -3,6 +3,7 @@ const router = express.Router();
 const auth = require("../../middleware/auth");
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
+const bcrypt = require("bcrypt");
 const { body, validationResult } = require("express-validator");
 //@route GET /api/profile
 //@desc GET current profile
@@ -110,22 +111,36 @@ router.get("/user/:user_id", async (req, res) => {
   }
 });
 
-//@route DELETE api/profile
+//@route post api/profile/delete
 //@desc delete profile user,post
 //@access private
 
-router.delete("/", auth, async (req, res) => {
-  try {
-    //remove profile
-    await Profile.findOneAndRemove({ user: req.user.id });
-    //remove user
-    await User.findOneAndRemove({ _id: req.user.id });
-    res.send("success delete");
-  } catch (error) {
-    console.log(error.message);
-    res.status(500).json("server error");
+router.post(
+  "/delete",
+  [auth, [body("password", "password is not correct").not().isEmpty()]],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ msg: "Invalid Credentials" });
+    }
+    try {
+      const user = await User.findById(req.user.id);
+      const { password } = req.body;
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+        return res.status(404).json({ msg: "Invalid Credentials" });
+      }
+      //remove profile
+      await Profile.findOneAndRemove({ user: req.user.id });
+      //remove user
+      await User.findOneAndRemove({ _id: req.user.id });
+      res.json({ msg: "success delete" });
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({ msg: "server error", error: error.message });
+    }
   }
-});
+);
 
 //@route PUT api/profile/experience
 //@desc add profile experience
