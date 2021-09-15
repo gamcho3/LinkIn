@@ -13,6 +13,8 @@ const ProfileTop = ({ profile }) => {
   );
 };
 
-ProfileTop.propTypes = {};
+ProfileTop.propTypes = {
+  profile: PropTypes.object.isRequired,
+};
 
 export default ProfileTop;

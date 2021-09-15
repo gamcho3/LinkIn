@@ -14,6 +14,8 @@ const ProfileExperience = ({ experience: { title, from, to } }) => {
   );
 };
 
-ProfileExperience.propTypes = {};
+ProfileExperience.propTypes = {
+  experience: PropTypes.object.isRequired,
+};
 
 export default ProfileExperience;
