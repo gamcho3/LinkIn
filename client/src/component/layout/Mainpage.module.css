@@ -1,17 +1,25 @@
-.main {
-  overflow: hidden;
-}
-
 .title {
   color: #132aff;
 }
 
 .landing {
   position: relative;
-  background: no-repeat url("../../image/movie.jpeg");
+  background: no-repeat url("../../image/people.jpeg");
   background-size: 100vw 95vh;
   background-position: center;
-  height: 92.2vh;
+  height: 94vh;
+  overflow: hidden;
+}
+
+.landing::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 0;
 }
 
 .landing-inner {
@@ -31,6 +39,7 @@
   align-items: center;
   justify-content: center;
   color: #eee;
+  z-index: 1;
 }
 
 .box h1 {

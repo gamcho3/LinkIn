@@ -1,9 +1,12 @@
 .main {
+  position: fixed;
+  top: 0;
   color: white;
-  background-color: black;
-  width: 100%;
+  background-color: rgb(39, 39, 39);
+  width: 100vw;
   height: 55px;
   padding: 5px 10px;
+  z-index: 5;
 }
 
 .navbar {

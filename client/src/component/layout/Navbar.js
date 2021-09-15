@@ -58,7 +58,7 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
       <nav className={classes.navbar}>
         <h1 className={classes.title}>
           <Link to="/" className={classes.link}>
-            DEV Connector
+            LinkIn
           </Link>
         </h1>
         {isAuthenticated ? authLink : guestLink}

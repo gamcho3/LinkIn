@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import classes from "./Mainpage.module.css";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
@@ -8,12 +8,12 @@ const Mainpage = ({ auth: { isAuthenticated } }) => {
     return <Redirect to="/dashboard" />;
   }
   return (
-    <div className={classes.main}>
+    <Fragment>
       <section className={classes["landing"]}>
         <div className={classes["landing-inner"]}>
           <div className={classes["box"]}>
-            <h1>MOVIE SHOP</h1>
-            <p>this is movie shopping site. </p>
+            <h1>LinkIn</h1>
+            <p>다양한 개발자들과 소통하세요 </p>
             <div>
               <Link
                 to="/login"
@@ -31,7 +31,7 @@ const Mainpage = ({ auth: { isAuthenticated } }) => {
           </div>
         </div>
       </section>
-    </div>
+    </Fragment>
   );
 };
 
