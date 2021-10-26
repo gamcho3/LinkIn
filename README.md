@@ -2,7 +2,7 @@
 
 > 개발자들과 정보를 공유하고 의사소통 할 수 있는 소셜네트워킹 사이트
 
-[들어가기](https://nameless-bastion-63717.herokuapp.com/)
+[들어가기](https://link-in-web.herokuapp.com/)
 
 ## 구현 기능
 
